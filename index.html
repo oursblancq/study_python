@@ -67,12 +67,14 @@
         }
 
         .btn:hover {
-            background-color: #b4a4ca;
+            background-color: #d3ccd6;
         }
 
         /* コンテンツの初期設定：最初は非表示 */
         .tab-content {
             display: none;
+            width: 100%;
+            margin-top: 20px;
             animation: fadeIn 0.5s;
         }
 
@@ -178,9 +180,7 @@
         const activeContent = document.getElementById(tabId);
         activeContent.classList.add('active');
     }
-    
-    // 最初はABOUTを表示しておく
-    showTab('about');
+
 </script>
 
 </body>
