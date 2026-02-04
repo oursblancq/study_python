@@ -81,8 +81,12 @@
         /* アクティブな時だけ表示 */
         .tab-content.active {
             display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
+            align-items: center;
+            gap: 20px;
+        .column{
+            width: 100% !important
+            maxwidth: 400px;
+            margin-bottom: 20px;
         }
 
         @keyframes fadeIn {
