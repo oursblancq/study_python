@@ -5,96 +5,124 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Profile</title>
     <style>
-        /* 全体の設定 */
         body {
             font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
             background-color: #ffffff;
-            color: #666; /* 文字色は少しグレー */
+            color: #666;
             margin: 0;
             display: flex;
             justify-content: center;
-            align-items: center;
+            padding-top: 100px;
             min-height: 100vh;
             line-height: 1.6;
         }
 
         .container {
             width: 90%;
-            max-width: 500px;
+            max-width: 450px;
         }
 
-        /* ヘッダー部分 */
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             border-bottom: 1px solid #ccc;
             padding-bottom: 10px;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .id-name {
             font-size: 24px;
-            letter-spacing: 0.2em;
+            letter-spacing: 0.3em;
             text-transform: uppercase;
+            color: #8899aa;
         }
 
         .icon {
-            width: 80px;
-            height: 80px;
+            width: 70px;
+            height: 70px;
             border-radius: 50%;
-            background-image: url('https://placehold.jp/80x80.png'); /* ここに月の画像のURLを入れる */
+            background-image: url('https://placehold.jp/70x70.png'); /* 好きな画像URLへ */
             background-size: cover;
         }
 
-        /* ボタン部分 */
         .buttons {
             margin-bottom: 30px;
         }
 
+        /* ボタンのスタイル */
         .btn {
             display: inline-block;
-            background-color: #e0e0e0;
+            background-color: #d1d5db;
             color: #fff;
-            padding: 5px 20px;
+            padding: 5px 25px;
             border-radius: 20px;
-            font-size: 12px;
+            font-size: 11px;
             font-weight: bold;
-            text-decoration: none;
+            cursor: pointer;
             margin-right: 10px;
-            letter-spacing: 0.1em;
+            border: none;
+            transition: 0.3s;
         }
 
-        /* コンテンツ部分 */
-        .content {
+        .btn:hover {
+            background-color: #bbc1cc;
+        }
+
+        /* コンテンツの初期設定：最初は非表示 */
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+
+        /* アクティブな時だけ表示 */
+        .tab-content.active {
             display: flex;
             justify-content: space-between;
-            font-size: 12px;
+            flex-wrap: wrap;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         .section-title {
-            background-color: #e9d5d5; /* 薄いピンク */
+            background-color: #e9d5d5;
             color: #fff;
-            padding: 2px 5px;
+            padding: 2px 8px;
             font-style: italic;
             font-weight: bold;
             display: inline-block;
             margin-bottom: 10px;
+            font-size: 11px;
         }
 
         .column {
-            width: 45%;
+            width: 48%;
+            font-size: 11px;
         }
 
-        .item-row {
-            display: flex;
+        /* ATTENTION用のカードスタイル */
+        .att-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            width: 100%;
+        }
+
+        .att-card {
+            border: 1px solid #eee;
+            padding: 10px;
+            position: relative;
+        }
+
+        .att-num {
+            color: #e9d5d5;
+            font-weight: bold;
+            font-size: 14px;
+            border-bottom: 1px solid #eee;
             margin-bottom: 5px;
-        }
-
-        .label {
-            width: 60px;
-            color: #999;
-            font-style: italic;
         }
     </style>
 </head>
@@ -102,36 +130,66 @@
 
 <div class="container">
     <header>
-        <div class="id-name">@C0SMON</div>
+        <div class="id-name">@i_m_nr_</div>
         <div class="icon"></div>
     </header>
 
     <div class="buttons">
-        <span class="btn">ABOUT</span>
-        <span class="btn">ATTENTION</span>
+        <button class="btn" onclick="showTab('about')">ABOUT</button>
+        <button class="btn" onclick="showTab('attention')">ATTENTION</button>
     </div>
 
-    <div class="content">
+    <div id="about" class="tab-content">
         <div class="column">
             <div class="section-title">GENERAL</div>
             <div>
-                <strong>cosmon</strong> こすも / もん<br>
-                昼神幸郎くんのりあこ<br><br>
-                ほんあかです FRBご自由に<br>
-                タメも敬語も気にしません
+                <strong>練る</strong><br>
+                タメも敬語も気にしません<br><br>
+                FRBご自由に<br>
             </div>
         </div>
-
         <div class="column">
-            <div class="section-title">LIKES</div>
-            <div class="item-row"><span class="label">HQ</span><span>昼神家 鴎台</span></div>
-            <div class="item-row"><span class="label">テニミュ</span><span>3rd山吹 青11</span></div>
-            <div class="item-row"><span class="label">V</span><span>卯月コウ</span></div>
-            <div class="item-row"><span class="label">同人作品</span><span>KNOCK永街</span></div>
-            <div class="item-row"><span class="label">音楽</span><span>HASAMI_group</span></div>
+            <div class="section-title">pass</div>
+            <div>全部夢のまま：0501</div>
+        </div>
+    </div>
+
+    <div id="attention" class="tab-content">
+        <div class="att-grid">
+            <div class="att-card">
+                <div class="att-num">01</div>
+                <div style="font-size: 10px;">実在する人物のお名前をお借りしていますが、あくまで空想に過ぎないことをご理解ください</div>
+            </div>
+            <div class="att-card">
+                <div class="att-num">02</div>
+                <div style="font-size: 10px;">なんか確実</div>
+            </div>
+            <div class="att-card">
+                <div class="att-num">NG</div>
+                <div style="font-size: 10px;">誹謗中傷、公共のデバイスを使用した閲覧、晒し行為、転載はおやめください</div>
+            </div>
+            <div class="att-card">
+                <div class="att-num">OK</div>
+                <div style="font-size: 10px;">誤字脱字報告、優しい感想、リクエストなど承っております</div>
+            </div>
         </div>
     </div>
 </div>
+
+<script>
+    function showTab(tabId) {
+        // すべてのコンテンツを一度隠す
+        const contents = document.querySelectorAll('.tab-content');
+        contents.forEach(content => content.classList.remove('active'));
+        
+        // クリックされたものだけ表示する
+        const activeContent = document.getElementById(tabId);
+        activeContent.classList.add('active');
+    }
+    
+    // 最初はABOUTを表示しておく
+    showTab('about');
+</script>
 
 </body>
 </html>
