@@ -67,19 +67,21 @@
         .btn:hover {
             background-color: #b4a4ca;
         }
+        
+　　　　　　/* 最初は非表示にする設定 */
+.tab-content {
+    display: none; /* これで消えます */
+    opacity: 0;
+    transition: opacity 0.5s;
+}
 
-        /* コンテンツの初期設定：最初は非表示 */
-        .tab-content {
-            display: none;
-            animation: fadeIn 0.5s;
-        }
+　　　/* ボタンが押されて 'active' という名前がついた時だけ表示する */
+.tab-content.active {
+    display: flex; 
+    opacity: 1;
+}
 
-        /* アクティブな時だけ表示 */
-        .tab-content.active {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-        }
+    
 
         @keyframes fadeIn {
             from { opacity: 0; }
