@@ -68,19 +68,17 @@
             background-color: #b4a4ca;
         }
 
-        /* 最初は非表示 */
+        /* コンテンツの初期設定：最初は非表示 */
         .tab-content {
             display: none;
-            opacity: 0;
-            transition: opacity 0.5s;
+            animation: fadeIn 0.5s;
         }
 
-        /* activeクラスがついた時だけ表示 */
+        /* アクティブな時だけ表示 */
         .tab-content.active {
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
-            opacity: 1;
         }
 
         @keyframes fadeIn {
@@ -185,3 +183,4 @@
 
 </body>
 </html>
+これに変更したところを付け加えて
